@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Clients_and_addresses.Models.AddressDTO>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Address</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<div class="container-sm">
+    <div class="justify-content-start">
+        <div class="row">
+            @foreach (var item in Model)
+             {
+                <div class="col-md-3 m-5">
+                    <div class="card" style="width:20rem;">
+                        <div class="card-body">
+                            <div class="position-static">
+                                <div class="row justify-content-center align-content-center">
+                                    <h5 class="card-title">Customer Information</h5>
+                                    <br />
+                                    <div class="col-6 text-center">
+                                        <p class="card-text">
+                                        <p>@Html.DisplayNameFor(model => model.FullName)</p>
+                                        <p>@Html.DisplayNameFor(model => model.StreetAddress)</p>
+                                        <p>@Html.DisplayNameFor(model => model.City)</p>
+                                        <p>@Html.DisplayNameFor(model => model.Zip)</p>
+                                        <p>@Html.DisplayNameFor(model => model.Type)</p>
+                                        <p>@Html.DisplayNameFor(model => model.Country)</p>
+                                        </p>
+                                    </div>
+                                    <div class="col-6 text-center">
+                                        <p class="card-text">
+                                        <p>@Html.DisplayFor(modelitem => item.Customer.FullName)</p>
+                                        <p>@Html.DisplayFor(modelitem => item.StreetAddress)</p>
+                                        <p>@Html.DisplayFor(modelitem => item.City)</p>
+                                        <p>@Html.DisplayFor(modelitem => item.Zip)</p>
+                                        <p>@Html.DisplayFor(modelitem => item.Type)</p>
+                                        <p>@Html.DisplayFor(modelitem => item.Country.Name)</p>
+                                        </p>
+                                    </div>
+                                    <a class="btn btn-primary m-1" asp-action="Edit" asp-route-id="@item.ID" role="button">Edit</a>
+                                    <a class="btn btn-primary m-1" asp-action="Delete" asp-route-id="@item.ID" role="button">Delete</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+             }
+        </div>
+    </div>
+</div>
